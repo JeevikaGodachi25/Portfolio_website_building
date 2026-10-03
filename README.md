@@ -31,4 +31,4 @@ To develop my front-end and back-end web development skills, work towards full-s
 
 * **GitHub Profile:** https://github.com/JeevikaGodachi25
 * **Portfolio Repository:** https://github.com/JeevikaGodachi25/Portfolio_website_building
-* **Website:** Add your published GitHub Pages URL here once your website is live.
+* **Website:** https://jeevikagodachi25.github.io/Portfolio_website_building/
