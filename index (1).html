@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Jeevika Godachi, a 3rd-semester Computer Science and Engineering student.">
+  <title>Jeevika Godachi | Portfolio</title>
+  <style>
+    :root {
+      --green: #f07818;
+      --green-dark: #b94f00;
+      --green-light: #fff1e5;
+      --text: #111111;
+      --muted: #555555;
+      --background: #ffffff;
+      --border: #e5e5e5;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--green-dark); }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #ffbd85;
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(1080px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span { color: var(--green); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--green-dark); }
+
+    .hero {
+      padding: 76px 0 68px;
+      background: linear-gradient(135deg, #ffffff 55%, #fff3e8 100%);
+    }
+
+    .eyebrow {
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.83rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+    }
+
+    h1 span { color: var(--green); }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 22px 0 28px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 18px;
+      border: 1px solid var(--green);
+      border-radius: 8px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover { background: var(--green-dark); }
+
+    .button.secondary {
+      color: var(--green-dark);
+      background: #fff;
+    }
+
+    .button.secondary:hover { background: var(--green-light); }
+
+    section { padding: 62px 0; }
+
+    section:nth-of-type(even) { background: #fcfdfc; }
+
+    .section-heading { margin-bottom: 26px; }
+
+    .section-heading h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.25rem);
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .about-copy { margin: 0; }
+
+    .info-panel {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+    }
+
+    .info-panel p { margin: 0 0 10px; }
+    .info-panel p:last-child { margin-bottom: 0; }
+    .info-label { color: var(--muted); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .project-number {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .project-card h3 {
+      margin: 0 0 9px;
+      font-size: 1.12rem;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .skills-list li {
+      padding: 9px 14px;
+      border: 1px solid #f2c49f;
+      border-radius: 8px;
+      background: var(--green-light);
+      color: #8a3b00;
+      font-size: 0.95rem;
+    }
+
+    .goal {
+      margin-top: 26px;
+      padding: 22px 24px;
+      border-left: 4px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      background: #fff6ee;
+    }
+
+    .goal h3 { margin: 0 0 6px; }
+    .goal p { margin: 0; color: var(--muted); }
+
+    .contact-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--card);
+    }
+
+    .contact-panel h3 { margin: 0 0 6px; }
+    .contact-panel p { margin: 0; color: var(--muted); }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer {
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 17px 0;
+      }
+
+      nav { gap: 14px; }
+      .hero { padding: 55px 0; }
+      section { padding: 48px 0; }
+      .about-grid, .projects-grid { grid-template-columns: 1fr; }
+      .contact-panel {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">Jeevika<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <p class="eyebrow">3rd Semester · Computer Science and Engineering</p>
+        <h1>Hello, I'm <span>Jeevika Godachi.</span></h1>
+        <p class="hero-copy">
+          I'm a CSE student interested in web development, data science, and emerging
+          technologies. I enjoy learning programming, solving coding problems, and
+          exploring how technology can solve real-world problems.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">Explore my work</a>
+          <a class="button secondary" href="#contact">Contact me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About</h2>
+          <p>A little about what I'm learning and the direction I want to grow in.</p>
+        </div>
+        <div class="about-grid">
+          <p class="about-copy">
+            I am a third-semester Computer Science and Engineering student who enjoys
+            exploring programming languages and building my problem-solving skills.
+            Through my learning activities, I have practised setting up a development
+            environment, exploring coding tools, collaborating, and organising coding
+            solutions. I am currently learning Java and revising SQL concepts.
+          </p>
+          <div class="info-panel">
+            <p><span class="info-label">Name:</span> Jeevika Godachi</p>
+            <p><span class="info-label">Semester:</span> 3rd Semester</p>
+            <p><span class="info-label">Branch:</span> Computer Science and Engineering (CSE)</p>
+            <p><span class="info-label">Current focus:</span> Java and SQL revision</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Projects & Previous Activities</h2>
+          <p>These activities document tools I have explored and practical work I have completed.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="project-number">Activity 01</span>
+            <h3>C Development Environment Setup</h3>
+            <p>
+              Set up Visual Studio Code, configured GCC/MinGW-w64, and successfully
+              compiled and executed a C Hello World program.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <span class="project-number">Activity 02</span>
+            <h3>Programming Tools Exploration</h3>
+            <p>
+              Explored Hello World programs in Python and Java, along with Prettier
+              formatting, GitLens, and Live Share.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <span class="project-number">Activity 03</span>
+            <h3>Code History & Collaboration</h3>
+            <p>
+              Explored GitLens to review code history and Live Share to understand
+              collaborative coding workflows.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <span class="project-number">Activity 04</span>
+            <h3>Coding Practice & Solution Organisation</h3>
+            <p>
+              Practised coding problems through LeetCode and worked on organising
+              solutions, testing code, documenting work, and tracking progress.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Skills</h2>
+          <p>My current skills and areas of ongoing learning.</p>
+        </div>
+        <ul class="skills-list" aria-label="Technical skills">
+          <li>C Programming</li>
+          <li>HTML (Basic)</li>
+          <li>Python (Basic)</li>
+          <li>Pandas (Basic)</li>
+          <li>NumPy (Basic)</li>
+          <li>Java (Beginner)</li>
+          <li>Git & GitHub (Basic)</li>
+          <li>SQL Concepts (Revising)</li>
+        </ul>
+
+        <div class="goal">
+          <h3>Career Goal</h3>
+          <p>
+            I want to develop my front-end and back-end web development skills and
+            work towards full-stack development. I also want to explore AI engineering,
+            data science, and cloud computing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Contact</h2>
+          <p>Find my coding work on GitHub or replace the placeholder links below with your own details.</p>
+        </div>
+        <div class="contact-panel">
+          <div>
+            <h3>Let's connect</h3>
+            <p>I'm learning step by step and building my programming experience.</p>
+          </div>
+          <div class="contact-links">
+            <!-- Replace the placeholder URL with your actual GitHub profile URL. -->
+            <a class="button" href="https://github.com/JeevikaGodachi25" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+            <!-- Replace the placeholder URL with your actual repository URL. -->
+            <a class="button secondary" href="https://github.com/JeevikaGodachi25/Portfolio_website_building" target="_blank" rel="noopener noreferrer">Portfolio Repository</a>
+            <!-- Add an email link only if you want to publish your email address. -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Jeevika Godachi · Personal Portfolio</p>
+    </div>
+  </footer>
+</body>
+</html>
